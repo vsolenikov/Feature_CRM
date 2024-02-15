@@ -46,28 +46,26 @@ Route::group(['middleware' => 'auth'], function () {
     });
 });
 
-// Модуль COVID
-Route::get('/covid/orgs/','Modules\COVID\CovidInfoController@AllJson');
-
-//Route::group(['middleware' => ['auth','moduleaccess:COVID']], function() {
+// Модуль Стратегическое развитие
+Route::get('/strat/orgs/','Modules\strat\StratInfoController@AllJson');
 
 Route::group(['middleware' => ['auth']], function() {
-    Route::get('/covid/map', 'Modules\COVID\CovidInfoController@ShowMap');
-     Route::get('/covid/map_eclg', 'Modules\COVID\CovidInfoController@ShowMapEclg');
-    Route::get('/covid/map_jkh', 'Modules\COVID\CovidInfoController@ShowMapJkh');
-    Route::get('/covid/map_roads', 'Modules\COVID\CovidInfoController@ShowMapRoads');
-    Route::get('/covid/map_ecnm', 'Modules\COVID\CovidInfoController@ShowMapEconom');
-    Route::get('/covid/map_soc', 'Modules\COVID\CovidInfoController@ShowMapSoc');
-    Route::get('/covid/stat', function () {return view('covid.stat');});
-    Route::post('/covid/stat/save', 'Modules\COVID\CovidInfoController@save');
-    Route::resource('covid', 'Modules\COVID\CovidInfoController', ['names' => [
-        'index'  => 'covid',
-        'create' => 'covid.create',
-        'edit'   => 'covid.edit',
-        'show'   => 'covid.show'
+    Route::get('/strat/map', 'Modules\strat\StratInfoController@ShowMap');
+     Route::get('/strat/map_eclg', 'Modules\strat\StratInfoController@ShowMapEclg');
+    Route::get('/strat/map_jkh', 'Modules\strat\StratInfoController@ShowMapJkh');
+    Route::get('/strat/map_roads', 'Modules\strat\StratInfoController@ShowMapRoads');
+    Route::get('/strat/map_ecnm', 'Modules\strat\StratInfoController@ShowMapEconom');
+    Route::get('/strat/map_soc', 'Modules\strat\StratInfoController@ShowMapSoc');
+    Route::get('/strat/stat', function () {return view('strat.stat');});
+    Route::post('/strat/stat/save', 'Modules\strat\StratInfoController@save');
+    Route::resource('strat', 'Modules\strat\StratInfoController', ['names' => [
+        'index'  => 'strat',
+        'create' => 'strat.create',
+        'edit'   => 'strat.edit',
+        'show'   => 'strat.show'
     ]]);
 });
-//COVID конец
+//strat конец
 
 
 
